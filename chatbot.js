@@ -26,7 +26,7 @@ function sendMessage() {
 
   setTimeout(() => handleBotResponse(text), 500);
 }
-const OPENAI_API_KEY = "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";
+const OPENAI_API_KEY = "your-api-key";
 
 async function askAI(prompt) {
   const res = await fetch("https://api.openai.com/v1/chat/completions", {
@@ -111,4 +111,5 @@ function startVoice() {
 
   recognition.start();
 }
+
 
