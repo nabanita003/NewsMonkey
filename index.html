@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Monkey 🐒</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="main-nav container flex">
+
+    <a href="#" onclick="reload()" class="company-logo">
+      <img src="./assets/News monkey.png" alt="company logo">
+    </a>
+
+    <div class="nav-links">
+      <ul class="flex">
+        <li class="hover-link nav-item" id="ipl" onclick="onNavItemClick('ipl')">IPL</li>
+        <li class="hover-link nav-item" id="finance" onclick="onNavItemClick('finance')">Finance</li>
+        <li class="hover-link nav-item" id="politics" onclick="onNavItemClick('politics')">Politics</li>
+        <li class="hover-link nav-item" onclick="showBookmarks()">❤️ Bookmarks</li>
+
+      </ul>
+    </div>
+
+    <div class="search-bar flex" style="position: relative;">
+      <input id="search-text" type="text" class="news-input" placeholder="e.g. Science">
+      <div id="suggestions" class="suggestions"></div>
+      <button id="search-button" class="search-button">Search</button>
+    </div>
+
+    <!-- Right Controls -->
+    <div class="nav-controls flex" style="gap: 10px;">
+      <select id="region">
+        <option value="India">🇮🇳 India</option>
+        <option value="World">🌍 Global</option>
+      </select>
+      <select id="language">
+  <option value="en">English</option>
+  <option value="hi">Hindi</option>
+  <option value="bn">Bengali</option>
+</select>
+
+      <button onclick="toggleDark()">🌙</button>
+      <button onclick="toggleAccessible()">♿</button>
+    </div>
+
+  </div>
+</nav>
+    <main>
+        <div class="cards-container container flex" id="cards-container">
+            
+        </div>
+    </main>
+
+    <template id="template-news-card">
+        <div class="card">
+            <div class="card-header">
+                <img src="https://via.placeholder.com/400x200" alt="news-image" id="news-img">
+            </div>
+            <div class="card-content">
+                <h3 id="news-title">This is the Title</h3>
+                <h6 class="news-source" id="news-source">End Gadget 26/08/2023</h6>
+                <p class="news-desc" id="news-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae saepe quis voluptatum quisquam vitae doloremque facilis molestias quae ratione cumque!</p>
+            </div>
+        </div>
+    </template>
+
+    <!-- AI Chatbot -->
+<div id="chatbot-btn">💬</div>
+
+<div id="chatbot" class="chatbot hidden">
+  <div class="chat-header">
+    🧠 News AI
+    <span onclick="toggleChat()">✖</span>
+  </div>
+
+  <div id="chat-body" class="chat-body"></div>
+  
+  <div class="chat-input">
+    <button onclick="startVoice()">🎙️</button>
+    <input id="chat-text" type="text" placeholder="Ask me about news...">
+    <button onclick="sendMessage()">Send</button>  
+  </div>
+</div>
+
+
+    <script src="index.js"></script>
+    <script src="chatbot.js"></script>
+</body>
+</html> 
